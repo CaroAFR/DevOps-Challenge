@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python-webserver
+  name: python-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-webserver
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: python-webserver
+    spec:
+      containers:
+      - image: caroarbiza/python-webserver:1.0
+        name: python-webserver
+        ports:
+        - containerPort: 8000
+
